@@ -4,11 +4,14 @@ var grid = [];
 var container = document.createElement("div");
 container.classList.add("tic-tac-toe-board");
 var gameActionListener = function() {
+//This gets called every time a user makes an action (click or touch)
 	return function(e) {
 		//DO STUFF
 		if (e.target == container) { return; }
 		if (!e.target.played) {
+      //Set the ui space
 			e.target.innerHTML = turn==0? "X":"O";
+      //Set an attribute to check later
 			e.target.played = turn==0?"X":"O";
 		} else {
 			console.log("Already played there!");
