@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+	<style>
+		#numberOfXWins::before {
+			content: "Number of X wins:";
+		}
+		#numberOfXWins {
+
+		}
+		#numberOfOWins::before {
+			content: "Number of O wins:";
+		}
+		#numberOfOWins {
+
+		}
+		#numberOfTies::before {
+			content: "Number of ties:";
+		}
+		#numberOfTies {
+
+		}
+		#numberOfGames::before {
+			content: "Number of games:";
+		}
+		#numberOfGames {
+
+		}
+	</style>
+</head>
+<body>
+	<h1>Tic Tac Toe Sim</h1>
+	<div id="numberOfXWins"></div>
+	<div id="numberOfOWins"></div>
+	<div id="numberOfTies"></div>
+	<div id="numberOfGames"></div>
+	<button id="runSim" onclick="runSim()">Run Sim</button>
+	<script src="ttt.js"></script>
+</body>
+</html>
+
+_ticToc = function() {
+	this.start;
+	this.end;
+	this.timeElapsed = function() {
+		return this.end - this.start;
+	}
+	this.tic = function() {
+		this.start = Date.now();
+		return this.start;
+	};
+	this.toc = function() {
+		this.end = Date.now();
+		console.log("time elapsed: "+this.timeElapsed());
+		return this.end;
+	};
+	return {
+		tic: this.tic,
+		toc: this.toc
+	};
+}();
+function tic() {
+	return _ticToc.tic();
+}
+function toc() {
+	return _ticToc.toc();
+}
