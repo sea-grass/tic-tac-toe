@@ -122,7 +122,7 @@ v
  * "  "  " *
 <  v  v  v  >
   
-
+A TTT game is always 5-9 moves. On all odd numbers of moves [5,7,9], X has a chance of winning. On all even number of moves [6,8], O has a chance of winning.
 
 
 

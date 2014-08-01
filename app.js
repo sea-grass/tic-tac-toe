@@ -9,7 +9,7 @@ var gameActionListener = function() {
 		//DO STUFF
 		if (e.target == container) { return; }
 		if (!e.target.played) {
-      //Set the ui space
+	//Set the ui space
 			e.target.innerHTML = turn==0? "X":"O";
       //Set an attribute to check later
 			e.target.played = turn==0?"X":"O";
@@ -39,6 +39,7 @@ var ui = document.createElement("div");
 document.body.appendChild(ui);
 ui.classList.add("ui");
 ui.innerHTML = "<div id='players'></div>";
+ui.innerHTML += "<div id='turns'></div>";
 ui.gameover = function(winner) {
 	this.innerHTML = "Game over!";
 	this.innerHTML += winner+" wins!! haha";
@@ -50,11 +51,13 @@ ui.update = function() {
 	} else {
 		this.querySelector("#players").innerHTML = players[0] + " : " + "<b>"+players[1]+"</b>";
 	}
+
 	for (var i = 0, filled = 0; i < grid.length; i++) {
 		if (grid[i].played) {
 			filled++;
 		}
 	}
+	this.querySelector("#turns").innerHTML = filled;
 	if (filled == 9) {
 		ui.gameover("X");
 	}
